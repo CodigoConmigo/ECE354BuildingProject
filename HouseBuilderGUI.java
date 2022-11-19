@@ -6,10 +6,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class HouseBuilderGUI {
 
 	private JFrame frame;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -62,13 +64,20 @@ public class HouseBuilderGUI {
 		welcomeLabel.setBounds(58, 50, 314, 28);
 		frame.getContentPane().add(welcomeLabel);
 		
+		textField = new JTextField();
+		textField.setBounds(68, 107, 96, 19);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		textField.setVisible(false);
+		
 		newBuildButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				welcomeLabel.setText("New Build Started");
 				JLabel roomMeasurementLabel = new JLabel("Please enter the length, width, and height of current room");
-				roomMeasurementLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+				roomMeasurementLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 11));
 				roomMeasurementLabel.setBounds(58, 84, 400, 21);
 				frame.getContentPane().add(roomMeasurementLabel);
+				textField.setVisible(true);
 			}
 		});
 		
